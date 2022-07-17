@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Recreate the solar system</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/animation.css">
+    <script src="javascripts/main.js" defer></script>
+  </head>
+  <body>
+    <video autoplay muted loop id="background_video">
+        <source src="stars_bg.mp4" type="video/mp4">
+    </video>
+    <div id="content" class="Content">
+	<section class="draggable-elements" id="draggable-elements">
+        <img src="images/Uranus.png" alt="Uranus" id="uranus" class="draggable" draggable="true">
+        <img src="images/Earth.png" alt="Earth" id="earth" class="draggable" draggable="true">
+        <img src="images/Neptune.png" alt="Neptune" id="neptune" class="draggable" draggable="true">
+        <img src="images/Jupiter.png" alt="Jupiter" id="jupiter" class="draggable" draggable="true">
+        <img src="images/Saturn.png" alt="Saturn" id="saturn" class="draggable" draggable="true">
+        <img src="images/Venus.png" alt="Venus" id="venus" class="draggable" draggable="true">
+        <img src="images/Mars.png" alt="Mars" id="mars" class="draggable" draggable="true">
+        <img src="images/Mercury.png" alt="Mercury" id="mercury" class="draggable" draggable="true">
+    </section>
+    <section class="droppable-elements">
+        <img src="images/Sun.png" alt="" id="sun">
+        <img src="images/GGBB.png" alt="" id="belt">
+        <div class="orbit" id="neptune1">
+            <div class="droppable" data-draggable-id="neptune"></div> 
+        </div>
+        <div class="orbit" id="uranus1">
+            <div class="droppable" data-draggable-id="uranus" ></div> 
+        </div>
+        <div class="orbit" id="saturn1">
+            <div class="droppable" data-draggable-id="saturn"></div>  
+        </div>
+        <div class="orbit" id="jupiter1">
+            <div class="droppable" data-draggable-id="jupiter" ></div> 
+        </div>
+        <div class="orbit" id="mars1">
+            <div class="droppable" data-draggable-id="mars" ></div> 
+        </div>
+        <div class="orbit" id="earth1">
+            <div class="droppable" data-draggable-id="earth" ></div> 
+        </div>
+        <div class="orbit" id="venus1">
+            <div class="droppable" data-draggable-id="venus"></div>
+        </div>
+        <div class="orbit" id="mercury1">
+            <div class="droppable" data-draggable-id="mercury" ></div> 
+        </div>
+    </section>
+
+    <section class="guide" id="guide">
+        <img src="images/robot.png" alt="">
+        <div>
+            <div class="instructions" id="instruct">
+                Hello I am Dexter! I will be helping you to recreate the Solar System!
+            </div>
+            <button onclick="OKbutton()" id="button">Lesssgo</button>
+            <button onclick="nasaRequest()" style="color: red;">DID YOU KNOW?</button>
+        </div>
+        <div class="alert" id="alert" style="display: none;">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <h3 id="title"></h3>
+            <img src="" alt="" id="img">
+            <p id="explaination">Indicates a dangerous or potentially negative action.</p>
+        </div>
+    </section>
+</div>
+    <script src="javascripts/facts.js"></script>
+    <script src="javascripts/guide.js"></script>
+    <script src="javascripts/orbits.js"></script>
+  </body>
+</html>
