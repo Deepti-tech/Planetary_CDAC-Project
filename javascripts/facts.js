@@ -23,6 +23,16 @@ function nasaRequest() {
 
     xmlhttp.open("GET", queryFull, true);
     xmlhttp.send();
+    document.getElementById("draggable-elements").style.opacity="0.5"
+    document.getElementById("droppable-elements").style.opacity="0.5"
+    document.getElementById("instruct").style.opacity="0.5"
+    document.getElementById("button").style.opacity="0.5"
+    document.getElementById("guide img").style.opacity="0.5"
 }
-
-// nasaRequest().onload;
+function closeAlert(){
+    document.getElementById("alert").style.display='none';
+    document.getElementById("draggable-elements").style.opacity="1"  ;
+    document.getElementById("droppable-elements").style.opacity="1";
+    document.getElementById("instruct").style.opacity="1";
+    document.getElementById("button").style.opacity="1";
+}
