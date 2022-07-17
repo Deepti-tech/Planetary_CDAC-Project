@@ -1,11 +1,11 @@
 var arr = [];
 var i = 0;
-arr=[1,2,3,4,5,6,7,8]
-// while(arr.length < 8){
-//    var r = Math.floor(Math.random() * 8) + 1;
-//    if(arr.indexOf(r) === -1) arr.push(r);
-// }
-console.log(arr);
+// arr=[1,2,3,4,5,6,7,8]
+while(arr.length < 8){
+   var r = Math.floor(Math.random() * 8) + 1;
+   if(arr.indexOf(r) === -1) arr.push(r);
+}
+// console.log(arr);
 
 var currPlanet=arr[0];
 var nextPlanet=arr[0];
