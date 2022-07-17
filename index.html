@@ -24,7 +24,7 @@
         <img src="images/Mars.png" alt="Mars" id="mars" class="draggable" draggable="true">
         <img src="images/Mercury.png" alt="Mercury" id="mercury" class="draggable" draggable="true">
     </section>
-    <section class="droppable-elements">
+    <section class="droppable-elements" id="droppable-elements">
         <img src="images/Sun.png" alt="" id="sun">
         <img src="images/GGBB.png" alt="" id="belt">
         <div class="orbit" id="neptune1">
@@ -63,7 +63,7 @@
             <button onclick="nasaRequest()" style="color: red;">DID YOU KNOW?</button>
         </div>
         <div class="alert" id="alert" style="display: none;">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <span class="closebtn" onclick="closeAlert()">&times;</span>
             <h3 id="title"></h3>
             <img src="" alt="" id="img">
             <p id="explaination">Indicates a dangerous or potentially negative action.</p>
