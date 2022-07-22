@@ -3,7 +3,7 @@ const droppableElements = document.querySelectorAll(".droppable");
 
 const planets = document.querySelectorAll('.droppable')
 var p_radii = [127,112,97,84,60,50,35,25]
-
+// var p_radii = [105,97,87,74,50,40,30,20]
 var p_orbits = document.querySelectorAll('.orbit')
 
 p_orbits.forEach((p_orbit, index)=>{
