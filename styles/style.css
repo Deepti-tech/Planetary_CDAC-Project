@@ -10,7 +10,6 @@ body{
     font-family: 'Montserrat', sans-serif;
     overflow-x: hidden;
     margin-left: 2rem;
-    background-color: black;
 }
 
 .Content {
@@ -31,7 +30,6 @@ body{
     bottom: 0;
     min-width: 100%;
     min-height: 100%;
-    opacity: 0.9;
 }
 
 .orbit{
