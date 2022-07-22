@@ -1,4 +1,5 @@
 /*Styling for the guide*/
+/*Styling for the guide*/
 .guide{
     display: flex;
     float: center;
@@ -26,7 +27,7 @@
     float: center;
 }
 
-.guide button{
+.guide button,#nasa{
     background-color: white;
     font-size: 1rem;
     color: black;
@@ -49,7 +50,8 @@
 }
 
 .instructions{
-    background-color: aqua;
+    background-color:#139AAC; 
+    color: azure;   ;
     padding: 1.2rem;
     border-radius: 10px;
     border: 3px solid black;
@@ -60,4 +62,11 @@
 
 #instruct img{
     height:100%; width:100%;
+}
+#nasa{
+    color:#139AAC;
+}
+#nasa:hover{
+    background-color: grey;
+    color: white;
 }
