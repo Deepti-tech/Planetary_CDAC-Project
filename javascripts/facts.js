@@ -27,6 +27,7 @@ function nasaRequest() {
     document.getElementById("droppable-elements").style.opacity="0.5"
     document.getElementById("instruct").style.opacity="0.5"
     document.getElementById("button").style.opacity="0.5"
+    document.getElementById("nasa").style.opacity="0.5"
     document.getElementById("guide-img").style.opacity="0.5"
 }
 function closeAlert(){
@@ -35,6 +36,7 @@ function closeAlert(){
     document.getElementById("droppable-elements").style.opacity="1";
     document.getElementById("instruct").style.opacity="1";
     document.getElementById("button").style.opacity="1";
+    document.getElementById("nasa").style.opacity="1";
     document.getElementById("guide-img").style.opacity="1"
 }
 // nasaRequest().onload;
