@@ -1,21 +1,17 @@
 var arr = [];
 var i = 0;
-// arr=[1,2,3,4,5,6,7,8]
+
 while(arr.length < 8){
    var r = Math.floor(Math.random() * 8) + 1;
    if(arr.indexOf(r) === -1) arr.push(r);
 }
-// console.log(arr);
 
 var currPlanet=arr[0];
 var nextPlanet=arr[0];
-
 document.getElementById("button").value = arr[0]
 
 draggableElements.forEach(elem => {
    elem.addEventListener("dragstart", dragStart);
-   // elem.addEventListener("drag", drag);
-   // elem.addEventListener("dragend", dragEnd);
 })
 
 droppableElements.forEach(elem => {
@@ -25,15 +21,13 @@ droppableElements.forEach(elem => {
    elem.addEventListener("drop", drop);
 })
 
-// Drag and drop functions
-var Pos
 function dragStart(event) {
    document.getElementById("button").style.display = 'none';
    switch(nextPlanet){
       case 1:
          if (event.target.id === "mercury") {
             event.dataTransfer.setData("text", event.target.id);
-            Pos = "It is closest to the sun!";
+            Pos = "It is Mercury.<br>It is closest to the sun!";
             document.getElementById("instruct").innerHTML = Pos
          }
          else {
@@ -44,7 +38,7 @@ function dragStart(event) {
       case 2:
          if (event.target.id === "venus") {
             event.dataTransfer.setData("text", event.target.id);
-            Pos = "It is the hottest planet but comes after Mercury<br>(not the sun)";
+            Pos = "This is Venus which is the hottest planet but comes after Mercury<br>(not the sun)";
             document.getElementById("instruct").innerHTML = Pos
          }
          else {
@@ -55,7 +49,7 @@ function dragStart(event) {
       case 3:
          if (event.target.id === "earth") {
             event.dataTransfer.setData("text", event.target.id);
-            Pos = "The planets before the Milky way are Terrestrial Planets. It is the second-last Terrestrial planet. ";
+            Pos = "The planets before the Milky way are Terrestrial Planets. Earth is the second-last Terrestrial planet.";
             document.getElementById("instruct").innerHTML = Pos
          }
          else {
@@ -66,7 +60,7 @@ function dragStart(event) {
       case 4:
          if (event.target.id === "mars") {
             event.dataTransfer.setData("text", event.target.id);
-            Pos = "It comes right before the milky way.";
+            Pos = "Yess, Mars!!<br>It comes right before the milky way.";
             document.getElementById("instruct").innerHTML = Pos
          }
          else {
@@ -88,7 +82,7 @@ function dragStart(event) {
       case 6:
          if (event.target.id === "saturn") {
             event.dataTransfer.setData("text", event.target.id);
-            Pos = "It comes after the largest planet in the Solar System. One year of Saturn equals 29 Earth years!";
+            Pos = "You are right, saturn. One year of Saturn equals 29 Earth years!";
             document.getElementById("instruct").innerHTML = Pos
          }
          else {
@@ -99,7 +93,7 @@ function dragStart(event) {
       case 7:
          if (event.target.id === "uranus") {
             event.dataTransfer.setData("text", event.target.id);
-            Pos = "It is the second-last planet in the solar system and is a neighbour of Saturn!";
+            Pos = "This is Uranus.<br>It is the second-last planet in the solar system and is a neighbour of Saturn!";
             document.getElementById("instruct").innerHTML = Pos
          }
          else {
@@ -110,7 +104,7 @@ function dragStart(event) {
       case 8:
          if (event.target.id === "neptune") {
             event.dataTransfer.setData("text", event.target.id);
-            Pos = "It is the last planet in the solar system.";
+            Pos = "It is Neptune.<br>It is the last planet in the solar system.";
             document.getElementById("instruct").innerHTML = Pos
          }
          else {
@@ -168,46 +162,54 @@ function drop(event) {
       if(currPlanet===8){
          document.getElementById("neptune1").className = "neptune-revolve";
       }
+      event.target.classList.add("dropped");
+      const draggableElement = document.getElementById(draggableElementData);
+      draggableElement.classList.add("dragged");
+      draggableElement.setAttribute("draggable", "false");
+      event.target.appendChild(document.getElementById(draggableElementData));
       i=i+1; 
       document.getElementById("button").value = nextPlanet = arr[i];
       if(i===8){
          document.getElementById("draggable-elements").className = "complete-ss";
          document.getElementById("guide").className = "complete-ss";
       }
-      event.target.classList.add("dropped");
-      const draggableElement = document.getElementById(draggableElementData);
-      draggableElement.classList.add("dragged");
-      draggableElement.setAttribute("draggable", "false");
-      event.target.appendChild(document.getElementById(draggableElementData));
    }
+   displayFacts();
 }
 
 function OKbutton(){
    document.getElementById("button").style.display = 'none'; 
    var Text;
    if(document.getElementById("button").value==='1'){
-       Text = "Drag the dark grey planet that has wrinkles on it!";
+      Text = "Drag the dark grey planet that has wrinkles on it!";
    }   
    if(document.getElementById("button").value==='2'){
-       Text = "Drag the yellowish-white planet with few brownish-red spots. These spots signify the volcanic rocks!";
+      Text = "Drag the yellowish-white planet with few brownish-red spots. These spots signify the volcanic rocks!";
    } 
    if(document.getElementById("button").value==='3'){
-       Text = "Next is our home! A combination of water and land! It is a rocky, terrestrial planet. It has a solid and active surface with mountains, valleys, canyons and plains.";
+      Text = "Next is our home! A combination of water and land! It is a rocky, terrestrial planet. It has a solid and active surface with mountains, valleys, canyons and plains.";
    } 
    if(document.getElementById("button").value==='4'){
-       Text = "Coming to the red planet! It got its colour red because of the rusty iron on its surface.";
+      Text = "Coming to the red planet! It got its colour red because of the rusty iron on its surface.";
    } 
    if(document.getElementById("button").value==='5'){
-       Text = "Drag the largest planet in the solar system! It is a gas giant and its colour changes with storms and wind in the planet's atmosphere. Here, drag the planet yellowish-brown in colour!";           
+      Text = "Drag the largest planet in the solar system! It is a gas giant and its colour changes with storms and wind in the planet's atmosphere. Here, drag the planet yellowish-brown in colour!";           
    } 
    if(document.getElementById("button").value==='6'){
-       Text = "Drag the planet with rings! It has a set of 7 main rings with spaces between them.";
+      Text = "Drag the planet with rings! It has a set of 7 main rings with spaces between them.";
    } 
    if(document.getElementById("button").value==='7'){
-       Text = "Drag the planet which is blue in colour and has faint rings.";
+      Text = "Drag the planet which is blue in colour and has faint rings.";
    } 
    if(document.getElementById("button").value==='8'){
-       Text = "The last one is a dark, cold and windy planet! ";
+      Text = "Drag the dark, cold and windy planet!<br>(It's colour is dark blue'.)";
    } 
    document.getElementById("instruct").innerHTML = Text
+}
+
+function displayFacts(){
+   display_fact = (Math.random())
+   if( display_fact < 0.33){
+      nasaRequest();
+   }
 }
