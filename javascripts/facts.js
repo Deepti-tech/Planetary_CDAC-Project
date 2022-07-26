@@ -43,7 +43,7 @@ function nasaRequest() {
 }
 function closeAlert(){
     document.getElementById("alert").style.display='none';
-    document.getElementById("draggable-elements").style.opacity="1"  ;
+    document.getElementById("draggable-elements").style.opacity="1";
     document.getElementById("droppable-elements").style.opacity="1";
     document.getElementById("instruct").style.opacity="1";
     document.getElementById("button").style.opacity="1";

@@ -55,7 +55,7 @@ function dragStart(event) {
       case 4:
          if (event.target.id === "mars") {
             event.dataTransfer.setData("text", event.target.id);
-            Pos = "Yess, Mars!!<br>It comes right before the milky way.";
+            Pos = "Yes, Mars!!<br>It comes right before the milky way.";
          }
          else {
             Pos = wrong_pos + '<img src="closeup-images/Mars.jpg"></img>'
@@ -64,7 +64,7 @@ function dragStart(event) {
       case 5:
          if (event.target.id === "jupiter") {
             event.dataTransfer.setData("text", event.target.id);
-            Pos = "That's right.<br>JUPITER!<br>It comes right after the milky way."
+            Pos = "That's right. Jupiter!<br>It comes right after the milky way."
          }
          else {
             Pos = wrong_pos + '<img src="closeup-images/Jupiter.jpg"></img>'
@@ -73,7 +73,7 @@ function dragStart(event) {
       case 6:
          if (event.target.id === "saturn") {
             event.dataTransfer.setData("text", event.target.id);
-            Pos = "You are right, saturn. One year of Saturn equals 29 Earth years!";
+            Pos = "You are right, Saturn.<br>The planets after the Milky way are Jovian Planets. It is the second Jovian planet.";
          }
          else {
             Pos = wrong_pos + '<img src="closeup-images/Saturn.jpg"></img>'
@@ -82,7 +82,7 @@ function dragStart(event) {
       case 7:
          if (event.target.id === "uranus") {
             event.dataTransfer.setData("text", event.target.id);
-            Pos = "This is Uranus.<br>It is the second-last planet in the solar system and is a neighbour of Saturn!";
+            Pos = "That's correct, Uranus!<br>It is the second-last planet in the solar system and is a neighbour of Saturn!";
          }
          else {
             Pos = wrong_pos + '<img src="closeup-images/Uranus.jpg"></img>'
@@ -174,10 +174,10 @@ function OKbutton(){
       Text = "Drag the yellowish-white planet with few brownish-red spots. These spots signify the volcanic rocks!";
    } 
    if(document.getElementById("button").value==='3'){
-      Text = "Next is our home! A combination of water and land! It is a rocky, terrestrial planet. It has a solid and active surface with mountains, valleys, canyons and plains.";
+      Text = "Drag our home! A combination of water and land! It is a rocky, terrestrial planet. It has a solid and active surface with mountains, valleys, canyons and plains.";
    } 
    if(document.getElementById("button").value==='4'){
-      Text = "Coming to the red planet! It got its colour red because of the rusty iron on its surface.";
+      Text = "Drag the red planet! It got its colour red because of the rusty iron on its surface.";
    } 
    if(document.getElementById("button").value==='5'){
       Text = "Drag the largest planet in the solar system! It is a gas giant and its colour changes with storms and wind in the planet's atmosphere. Here, drag the planet yellowish-brown in colour!";           

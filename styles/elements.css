@@ -9,7 +9,7 @@
     border-radius: 20px;
     margin-left: 2rem;
     margin-top: 2rem;
-    max-height:fit-content;
+    max-height: max-content;
     width: 13.5rem;
 }
 
@@ -36,6 +36,7 @@
     justify-content: center;
     float: center;
     width: 100%;
+    top: 5rem;
 }
 
 .droppable{
