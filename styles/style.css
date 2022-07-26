@@ -11,10 +11,6 @@ body{
     font-family: 'Montserrat', sans-serif;
     overflow-x: hidden;
     margin-left: 2rem;
-    display: flex;
-    /* align-items: center;
-    justify-content: center; */
-    flex-direction: column;
 }
 
 #titleOfTheGame{
