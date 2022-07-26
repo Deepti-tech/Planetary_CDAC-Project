@@ -23,96 +23,83 @@ droppableElements.forEach(elem => {
 
 function dragStart(event) {
    document.getElementById("button").style.display = 'none';
+   wrong_pos = "Going wrong somewhere...<br>Take a closer look"
    switch(nextPlanet){
       case 1:
          if (event.target.id === "mercury") {
             event.dataTransfer.setData("text", event.target.id);
             Pos = "It is Mercury.<br>It is closest to the sun!";
-            document.getElementById("instruct").innerHTML = Pos
          }
          else {
-            document.getElementById("instruct").innerHTML='Going wrong somewhere...<br>Look at this closer picture<img src="closeup-images/Mercury.jpg"></img>'
+            Pos = wrong_pos + '<img src="closeup-images/Mercury.jpg"></img>'
          }
-         currPlanet=1
          break
       case 2:
          if (event.target.id === "venus") {
             event.dataTransfer.setData("text", event.target.id);
             Pos = "This is Venus which is the hottest planet but comes after Mercury<br>(not the sun)";
-            document.getElementById("instruct").innerHTML = Pos
          }
          else {
-            document.getElementById("instruct").innerHTML='Going wrong somewhere...<br>Look at this closer picture<img src="closeup-images/Venus.jpg"></img>'
+            Pos = wrong_pos + '<img src="closeup-images/Venus.jpg"></img>'
          }
-         currPlanet=2
          break
       case 3:
          if (event.target.id === "earth") {
             event.dataTransfer.setData("text", event.target.id);
             Pos = "The planets before the Milky way are Terrestrial Planets. Earth is the second-last Terrestrial planet.";
-            document.getElementById("instruct").innerHTML = Pos
          }
          else {
-            document.getElementById("instruct").innerHTML='Going wrong somewhere...<br>Look at this closer picture<img src="closeup-images/Earth.jpg"></img>'
+            Pos = wrong_pos + '<img src="closeup-images/Earth.jpg"></img>'
          }
-         currPlanet=3
          break
       case 4:
          if (event.target.id === "mars") {
             event.dataTransfer.setData("text", event.target.id);
             Pos = "Yess, Mars!!<br>It comes right before the milky way.";
-            document.getElementById("instruct").innerHTML = Pos
          }
          else {
-            document.getElementById("instruct").innerHTML='Going wrong somewhere...<br>Look at this closer picture<img src="closeup-images/Mars.jpg"></img>'
+            Pos = wrong_pos + '<img src="closeup-images/Mars.jpg"></img>'
          }
-         currPlanet=4
          break
       case 5:
          if (event.target.id === "jupiter") {
             event.dataTransfer.setData("text", event.target.id);
             Pos = "That's right.<br>JUPITER!<br>It comes right after the milky way."
-            document.getElementById("instruct").innerHTML = Pos
          }
          else {
-            document.getElementById("instruct").innerHTML='Going wrong somewhere...<br>Look at this closer picture<img src="closeup-images/Jupiter.jpg"></img>'
+            Pos = wrong_pos + '<img src="closeup-images/Jupiter.jpg"></img>'
          }
-         currPlanet=5;
          break
       case 6:
          if (event.target.id === "saturn") {
             event.dataTransfer.setData("text", event.target.id);
             Pos = "You are right, saturn. One year of Saturn equals 29 Earth years!";
-            document.getElementById("instruct").innerHTML = Pos
          }
          else {
-            document.getElementById("instruct").innerHTML='Going wrong somewhere...<br>Look at this closer picture<img src="closeup-images/Saturn.jpg"></img>'
+            Pos = wrong_pos + '<img src="closeup-images/Saturn.jpg"></img>'
          }
-         currPlanet=6
          break
       case 7:
          if (event.target.id === "uranus") {
             event.dataTransfer.setData("text", event.target.id);
             Pos = "This is Uranus.<br>It is the second-last planet in the solar system and is a neighbour of Saturn!";
-            document.getElementById("instruct").innerHTML = Pos
          }
          else {
-            document.getElementById("instruct").innerHTML='Going wrong somewhere...<br>Look at this closer picture<img src="closeup-images/Uranus.jpg"></img>'
+            Pos = wrong_pos + '<img src="closeup-images/Uranus.jpg"></img>'
          }
-         currPlanet=7
          break
       case 8:
          if (event.target.id === "neptune") {
             event.dataTransfer.setData("text", event.target.id);
             Pos = "It is Neptune.<br>It is the last planet in the solar system.";
-            document.getElementById("instruct").innerHTML = Pos
          }
          else {
-            document.getElementById("instruct").innerHTML='Going wrong somewhere...<br>Look at this closer picture<img src="closeup-images/Neptune.jpg"></img>'
+            Pos = wrong_pos + '<img src="closeup-images/Neptune.jpg"></img>'
          }
-         currPlanet=8
          break     
    }
+   document.getElementById("instruct").innerHTML = Pos;
+   currPlanet=nextPlanet;
 }
 
 function dragEnter(event) {
@@ -208,6 +195,7 @@ function OKbutton(){
 }
 
 function displayFacts(){
+   var display_fact;
    display_fact = (Math.random())
    if( display_fact < 0.33){
       nasaRequest();
