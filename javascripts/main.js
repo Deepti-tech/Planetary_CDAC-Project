@@ -159,6 +159,7 @@ function drop(event) {
       if(i===8){
          document.getElementById("draggable-elements").className = "complete-ss";
          document.getElementById("guide").className = "complete-ss";
+         document.getElementById("alert").className = "complete-ss";
       }
    }
    displayFacts();
