@@ -14,8 +14,7 @@
   <body>
     <video autoplay muted loop id="background_video">
         <source src="stars_bg.mp4" type="video/mp4">
-    </video>
-    
+    </video>   
     <span id="titleOfTheGame">Recreate the solar system</span>
     <div id="content" class="Content">
         <div class="draggable-elements" id="draggable-elements">
@@ -64,6 +63,7 @@
                     Hello I am Dexter! I will be helping you to recreate the Solar System!
                 </div>
                 <button onclick="OKbutton()" id="button">LET'S GO</button>
+                
             </div>
             <div class="alert" id="alert" style="display: none;">
                 <span class="closebtn" onclick="closeAlert()">&times;</span>
@@ -71,8 +71,12 @@
                 <img src="" alt="Loading....." id="img">
                 <p id="explaination"></p>
             </div>
+            
         </section> 
     </div>
+    <audio autoplay>
+        <source src="dark_matter.mp3" type="audio/mpeg">
+    </audio>
     <script src="javascripts/facts.js"></script>
     <script src="javascripts/orbits.js"></script>
     <script src="javascripts/guide.js"></script>
