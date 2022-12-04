@@ -1,5 +1,7 @@
 var arr = [];
 var i = 0;
+var error = []
+var myplanets = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"]
 
 while(arr.length < 8){
    var r = Math.floor(Math.random() * 8) + 1;
@@ -116,6 +118,22 @@ function dragLeave(event) {
    event.target.classList.remove("droppable-hover");
 }
 
+function insertionSort(arr, n)
+{
+	let i, key, j;
+	for (i = 1; i < n; i++)
+	{
+		key = arr[i];
+		j = i - 1;		
+		while (j >= 0 && arr[j] > key)
+		{
+			arr[j + 1] = arr[j];
+			j = j - 1;
+		}
+		arr[j + 1] = key;
+	}
+}
+
 function drop(event) {
    event.target.classList.remove("droppable-hover");
    event.preventDefault();
@@ -154,11 +172,53 @@ function drop(event) {
       draggableElement.classList.add("dragged");
       draggableElement.setAttribute("draggable", "false");
       event.target.appendChild(document.getElementById(draggableElementData));
+      error.push(arr[i]);
       i=i+1; 
       document.getElementById("button").value = nextPlanet = arr[i];
       if(i===8){
          document.getElementById("draggable-elements").className = "complete-ss";
          document.getElementById("guide").className = "complete-ss";
+      }
+   }
+   else{
+      error.push(arr[i]);
+      insertionSort(error, error.length);
+      index = error.indexOf(arr[i]);
+
+      p= myplanets[error[index]-1];
+      
+      p1=myplanets[error[index-1]-1];
+      p2=myplanets[error[index+1]-1];
+
+      if(error[index-1]==undefined && error[index+1]!=undefined){
+         if (error[index]<=4){
+            document.getElementById("instruct").innerHTML= p+" lies between sun and "+ p2;
+         }
+         else{
+            document.getElementById("instruct").innerHTML= p+ " lies between milkyway and "+p2;
+         }
+      }
+
+      else if(error[index-1]!=undefined && error[index+1]==undefined){
+         if (error[index]<=4){
+            document.getElementById("instruct").innerHTML= p+" lies between " + p1 +" and milkyway";
+         }
+         else{
+            document.getElementById("instruct").innerHTML= p+" lies after "+p1;
+         }
+      }
+
+      else if(error[index+1]==undefined && error[index-1]==undefined){
+         if (error[index]<=4){
+            document.getElementById("instruct").innerHTML= p+" lies between sun and milkyway";
+         }
+         else{
+            document.getElementById("instruct").innerHTML= p+" lies after milkyway";
+         }
+      }
+
+      else{
+         document.getElementById("instruct").innerHTML= p+" lies between " + p1 +" and " + p2;
       }
    }
    displayFacts();
