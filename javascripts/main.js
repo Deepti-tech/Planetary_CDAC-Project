@@ -23,6 +23,48 @@ droppableElements.forEach(elem => {
    elem.addEventListener("drop", drop);
 })
 
+function dexter_voice(){
+   function getVoices() {
+      let voices = speechSynthesis.getVoices();
+      if(!voices.length){
+        // some time the voice will not be initialized so we can call spaek with empty string
+        // this will initialize the voices 
+        let utterance = new SpeechSynthesisUtterance("");
+        speechSynthesis.speak(utterance);
+        voices = speechSynthesis.getVoices();
+      }
+      return voices;
+    }
+    
+    
+    function speak(text, voice, rate, pitch, volume) {
+      // create a SpeechSynthesisUtterance to configure the how text to be spoken 
+      let speakData = new SpeechSynthesisUtterance();
+      speakData.volume = volume; // From 0 to 1
+      speakData.rate = rate; // From 0.1 to 10
+      speakData.pitch = pitch; // From 0 to 2
+      speakData.text = text;
+      speakData.lang = 'en';
+      speakData.voice = voice;
+      
+      // pass the SpeechSynthesisUtterance to speechSynthesis.speak to start speaking 
+      speechSynthesis.speak(speakData);
+    
+    }
+   
+    if ('speechSynthesis' in window) {
+   
+      let voices = getVoices();
+      let rate = 1, pitch = 0, volume = 1;
+      let text = document.getElementById("instruct").innerText;
+    
+      speak(text, voices[5], rate, pitch, volume);
+    
+    }else{
+      console.log(' Speech Synthesis Not Supported 😞'); 
+    }
+}
+
 function dragStart(event) {
    document.getElementById("button").style.display = 'none';
    wrong_pos = "Going wrong somewhere...<br>Take a closer look"
@@ -42,7 +84,17 @@ function dragStart(event) {
             Pos = "This is Venus which is the hottest planet but comes after Mercury<br>(not the sun)";
          }
          else {
-            Pos = wrong_pos + '<img src="closeup-images/Venus.jpg"></img>'
+            if(event.target.id === "jupiter"){
+               wrong_pos = "Going wrong somewhere? The correct planet is smaller in size than this.<br> Take a closer look."
+               Pos = wrong_pos + '<img src="closeup-images/Venus.jpg"></img>'
+            }
+            if(event.target.id === "saturn"){
+               wrong_pos = "Going wrong somewhere? The correct planet does not have rings.<br> Take a closer look."
+               Pos = wrong_pos + '<img src="closeup-images/Venus.jpg"></img>'
+            }
+            else {
+               Pos = wrong_pos + '<img src="closeup-images/Venus.jpg"></img>'
+            }
          }
          break
       case 3:
@@ -51,7 +103,17 @@ function dragStart(event) {
             Pos = "The planets before the Milky way are Terrestrial Planets. Earth is the second-last Terrestrial planet.";
          }
          else {
-            Pos = wrong_pos + '<img src="closeup-images/Earth.jpg"></img>'
+            if(event.target.id === "neptune"){
+               wrong_pos = "Going wrong somewhere? The correct planet also has green spots which represents the land.<br> Take a closer look.";
+               Pos = wrong_pos + '<img src="closeup-images/Earth.jpg"></img>'
+            }
+            if(event.target.id === "uranus"){
+               wrong_pos = "Going wrong somewhere? The correct planet does not have rings.<br> Take a closer look.";
+               Pos = wrong_pos + '<img src="closeup-images/Earth.jpg"></img>';
+            }
+            else {
+               Pos = wrong_pos + '<img src="closeup-images/Earth.jpg"></img>'
+            }
          }
          break
       case 4:
@@ -60,7 +122,13 @@ function dragStart(event) {
             Pos = "Yes, Mars!!<br>It comes right before the milky way.";
          }
          else {
-            Pos = wrong_pos + '<img src="closeup-images/Mars.jpg"></img>'
+            if(event.target.id === "jupiter"){
+               wrong_pos = "Going wrong somewhere? The correct planet is smaller in size than this.<br> Take a closer look."
+               Pos = wrong_pos + '<img src="closeup-images/Mars.jpg"></img>'
+            }
+            else {
+               Pos = wrong_pos + '<img src="closeup-images/Mars.jpg"></img>'
+            }
          }
          break
       case 5:
@@ -69,7 +137,21 @@ function dragStart(event) {
             Pos = "That's right. Jupiter!<br>It comes right after the milky way."
          }
          else {
-            Pos = wrong_pos + '<img src="closeup-images/Jupiter.jpg"></img>'
+            if(event.target.id === "venus"){
+               wrong_pos = "Going wrong somewhere? The correct planet is larger in size than this.<br> Take a closer look."
+               Pos = wrong_pos + '<img src="closeup-images/Jupiter.jpg"></img>'
+            }
+            if(event.target.id === "mars"){
+               wrong_pos = "Going wrong somewhere? The correct planet is not completely red.<br> Take a closer look."
+               Pos = wrong_pos + '<img src="closeup-images/Jupiter.jpg"></img>'
+            }
+            if(event.target.id === "saturn"){
+               wrong_pos = "Going wrong somewhere? The correct planet does not have rings.<br> Take a closer look.";
+               Pos = wrong_pos + '<img src="closeup-images/Jupiter.jpg"></img>';
+            }
+            else {
+               Pos = wrong_pos + '<img src="closeup-images/Jupiter.jpg"></img>'
+            }
          }
          break
       case 6:
@@ -78,7 +160,13 @@ function dragStart(event) {
             Pos = "You are right, Saturn.<br>The planets after the Milky way are Jovian Planets. It is the second Jovian planet.";
          }
          else {
-            Pos = wrong_pos + '<img src="closeup-images/Saturn.jpg"></img>'
+            if(event.target.id === "uranus"){
+               wrong_pos = "Going wrong somewhere? The correct planet is yellowish in color with rings around it.<br> Take a closer look.";
+               Pos = wrong_pos + '<img src="closeup-images/Saturn.jpg"></img>';
+            }
+            else {
+               Pos = wrong_pos + '<img src="closeup-images/Saturn.jpg"></img>'
+            }
          }
          break
       case 7:
@@ -87,7 +175,17 @@ function dragStart(event) {
             Pos = "That's correct, Uranus!<br>It is the second-last planet in the solar system and is a neighbour of Saturn!";
          }
          else {
-            Pos = wrong_pos + '<img src="closeup-images/Uranus.jpg"></img>'
+            if(event.target.id === "saturn"){
+               wrong_pos = "Going wrong somewhere? The correct planet is blue in color with rings around it.<br> Take a closer look.";
+               Pos = wrong_pos + '<img src="closeup-images/Uranus.jpg"></img>';
+            }
+            if(event.target.id === "neptune"){
+               wrong_pos = "Going wrong somewhere? The correct planet has rings around it.<br> Take a closer look.";
+               Pos = wrong_pos + '<img src="closeup-images/Uranus.jpg"></img>';
+            }
+            else {
+               Pos = wrong_pos + '<img src="closeup-images/Uranus.jpg"></img>'
+            }
          }
          break
       case 8:
@@ -96,12 +194,29 @@ function dragStart(event) {
             Pos = "It is Neptune.<br>It is the last planet in the solar system.";
          }
          else {
-            Pos = wrong_pos + '<img src="closeup-images/Neptune.jpg"></img>'
+            if(event.target.id === "mercury"){
+               wrong_pos = "Going wrong somewhere? The correct planet is blue in color.<br> Take a closer look.";
+               Pos = wrong_pos + '<img src="closeup-images/Neptune.jpg"></img>';
+            }
+            if(event.target.id === "uranus"){
+               wrong_pos = "Going wrong somewhere? The correct planet does not have rings around it.<br> Take a closer look.";
+               Pos = wrong_pos + '<img src="closeup-images/Neptune.jpg"></img>';
+            }
+            else {
+               Pos = wrong_pos + '<img src="closeup-images/Neptune.jpg"></img>'
+            }
          }
          break     
    }
    document.getElementById("instruct").innerHTML = Pos;
    currPlanet=nextPlanet;
+
+   dexter_voice();
+}
+
+function removeDuplicates(arr) {
+   return arr.filter((item,
+       index) => arr.indexOf(item) === index);
 }
 
 function dragEnter(event) {
@@ -180,8 +295,9 @@ function drop(event) {
          document.getElementById("guide").className = "complete-ss";
       }
    }
-   else{
+   else if(myplanets[currPlanet-1].toLowerCase() == draggableElementData){
       error.push(arr[i]);
+      error = removeDuplicates(error);
       insertionSort(error, error.length);
       index = error.indexOf(arr[i]);
 
@@ -220,8 +336,11 @@ function drop(event) {
       else{
          document.getElementById("instruct").innerHTML= p+" lies between " + p1 +" and " + p2;
       }
+      dexter_voice();
    }
    displayFacts();
+   
+   
 }
 
 function displayFacts(){
