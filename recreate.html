@@ -119,11 +119,14 @@
     if ('speechSynthesis' in window) {
    
       let voices = getVoices();
-      let rate = 1, pitch = 0, volume = 1;
+      let rate = 1, pitch = 1, volume = 1;
       let text = document.getElementById("instruct").innerText;
     
       speak(text, voices[5], rate, pitch, volume);
-    
+    //   for(i=0; i<voices.length; i++){
+    //     console.log(voices[i])
+    //   }
+    //   console.log(voices[5])
     }else{
       console.log(' Speech Synthesis Not Supported 😞'); 
     }
