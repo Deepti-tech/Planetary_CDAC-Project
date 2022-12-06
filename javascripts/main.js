@@ -252,6 +252,7 @@ function drop(event) {
          document.getElementById("draggable-elements").className = "complete-ss";
          document.getElementById("guide").className = "complete-ss";
       }
+      displayFacts();
    }
    else if(myplanets[currPlanet-1].toLowerCase() == draggableElementData){
       error.push(arr[i]);
@@ -295,10 +296,7 @@ function drop(event) {
          document.getElementById("instruct").innerHTML= p+" lies between " + p1 +" and " + p2;
       }
       dexter_voice();
-   }
-   displayFacts();
-   
-   
+   }  
 }
 
 function displayFacts(){
