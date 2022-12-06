@@ -23,16 +23,6 @@ droppableElements.forEach(elem => {
    elem.addEventListener("drop", drop);
 })
 
-    if ('speechSynthesis' in window) {
-      let rate = 1, pitch = 1.5, volume = 1;
-      let text = document.getElementById("instruct").innerText;
-    
-      speak(text, voices[5], rate, pitch, volume);
-    
-    }else{
-      console.log(' Speech Synthesis Not Supported 😞'); 
-    }
-
 function dragStart(event) {
    document.getElementById("button").style.display = 'none';
    wrong_pos = "Going wrong somewhere...<br>Take a closer look"
