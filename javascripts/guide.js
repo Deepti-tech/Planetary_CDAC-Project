@@ -26,4 +26,6 @@ function OKbutton(){
       Text = "Drag the dark, cold and windy planet!<br>(It's colour is dark blue.)";
     } 
     document.getElementById("instruct").innerHTML = Text
+
+    dexter_voice();
  }
