@@ -3,11 +3,11 @@ var i = 0;
 var error = []
 var myplanets = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"]
 
-while(arr.length < 8){
-   var r = Math.floor(Math.random() * 8) + 1;
-   if(arr.indexOf(r) === -1) arr.push(r);
-}
-
+// while(arr.length < 8){
+//    var r = Math.floor(Math.random() * 8) + 1;
+//    if(arr.indexOf(r) === -1) arr.push(r);
+// }
+arr = [1, 2, 3, 4, 5, 6, 7, 8]
 var currPlanet=arr[0];
 var nextPlanet=arr[0];
 document.getElementById("button").value = arr[0]
