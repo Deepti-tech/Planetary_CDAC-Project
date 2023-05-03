@@ -27,5 +27,5 @@ function OKbutton(){
     } 
     document.getElementById("instruct").innerHTML = Text
 
-    // dexter_voice();
+    dexter_voice();
  }

@@ -7,7 +7,7 @@ var myplanets = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uran
 //    var r = Math.floor(Math.random() * 8) + 1;
 //    if(arr.indexOf(r) === -1) arr.push(r);
 // }
-arr = [1, 2, 3, 4, 5, 6, 7, 8]
+arr = [1, 2, 3, 4, 5, 6, 7,]
 var currPlanet=arr[0];
 var nextPlanet=arr[0];
 document.getElementById("button").value = arr[0]
@@ -169,7 +169,7 @@ function dragStart(event) {
    document.getElementById("instruct").innerHTML = Pos;
    currPlanet=nextPlanet;
 
-   // dexter_voice();
+   dexter_voice();
 }
 
 function removeDuplicates(arr) {
@@ -295,7 +295,7 @@ function drop(event) {
       else{
          document.getElementById("instruct").innerHTML= p+" lies between " + p1 +" and " + p2;
       }
-      // dexter_voice();
+      dexter_voice();
    }  
 }
 
