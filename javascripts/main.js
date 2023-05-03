@@ -169,7 +169,7 @@ function dragStart(event) {
    document.getElementById("instruct").innerHTML = Pos;
    currPlanet=nextPlanet;
 
-   dexter_voice();
+   // dexter_voice();
 }
 
 function removeDuplicates(arr) {
@@ -295,7 +295,7 @@ function drop(event) {
       else{
          document.getElementById("instruct").innerHTML= p+" lies between " + p1 +" and " + p2;
       }
-      dexter_voice();
+      // dexter_voice();
    }  
 }
 
